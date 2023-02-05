@@ -1,0 +1,41 @@
+import turtle
+
+f = turtle.Pen()
+f.shape("turtle")
+f.color("red")
+f.width(3)
+# definition of squares
+num_of_square_sides = 4
+len_of_square_sides = 100
+angle_of_square_turn = 90
+
+# definition of stars
+num_of_star_sides = 8
+len_of_star_side = 100
+angle_of_star_turn = 225
+
+color_list = ["red", "green", "blue", "yellow", "orange", "purple"]
+
+
+def shape(num_of_sides, len_of_side, angle_of_turn):
+    for i in range(num_of_sides):
+        f.forward(len_of_side)
+        f.left(angle_of_turn)
+
+
+for i in range(100):
+    x = random.randrange(-200, 200)
+    y = random.randrange(-200, 200)
+    f.speed(0)
+    f.up()
+    f.goto(x, y)
+    f.down()
+    color_of_shape = random.choice(color_list)
+    f.color(color_of_shape)
+    size = random.randrange(10, 50)
+    if i%2 == 0:
+        # print a square
+        shape(num_of_square_sides,size, angle_of_square_turn)
+    else:
+        # print a star
+        shape(num_of_star_sides, size, angle_of_star_turn)
